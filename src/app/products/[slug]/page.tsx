@@ -1,3 +1,4 @@
+import { getProduct, getProducts } from "@/service/products";
 import { notFound } from "next/navigation";
 
 type Props ={
@@ -13,22 +14,27 @@ export function generateMetadata({params}:Props){
     }
 }
 
-export default function PantsPage({params}:Props) {
+export default async function ProductPage({params:{slug}}:Props) {
 
-    if(params.slug==='nothing' ){
+   
+    //서버 파일에 있는 데이터중 해당제품의 정보를 찾아서 그걸 보여줌 
+    const product= await getProduct(slug);
+    
+    if(!product){
         notFound();
     }
     return (
         <div>
-            {params.slug} detail page 
+            {product.name} detail page 
         </div>
     );
 }
 
 
-export function generateStaticParams(){
-    const products =['pants','skirts'];
-    return products.map(product=> ({
-        slug:product
+export async function generateStaticParams(){
+    // 모든 제품의 페이지들을 미리 만들어 둘수 있게 해줄거임 ( SSG)
+    const products =await getProducts();
+    return products.map (product => ({
+        slug:product.id
     }))
 }
