@@ -1,12 +1,13 @@
 import { getProduct, getProducts } from "@/service/products";
 import { notFound } from "next/navigation";
+// revalidate
+export const revalidate =3; //3s마다 
 
 type Props ={
     params:{
         slug:string
     }
 }
-
 
 export function generateMetadata({params}:Props){
     return{
@@ -19,7 +20,7 @@ export default async function ProductPage({params:{slug}}:Props) {
    
     //서버 파일에 있는 데이터중 해당제품의 정보를 찾아서 그걸 보여줌 
     const product= await getProduct(slug);
-    
+
     if(!product){
         notFound();
     }
