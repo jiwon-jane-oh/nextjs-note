@@ -32,7 +32,7 @@ export default async function ProductPage({params:{slug}}:Props) {
 
 
 export async function generateStaticParams(){
-    // 모든 제품의 페이지들을 미리 만들어 둘수 있게 해줄거임 ( SSG)
+    // 모든 제품의 페이지들을 미리 만들어 둘수 있게 해줄거임 (SSG)
     const products =await getProducts();
     return products.map (product => ({
         slug:product.id
