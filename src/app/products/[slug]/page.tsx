@@ -1,7 +1,6 @@
 import { getProduct, getProducts } from "@/service/products";
 import { notFound } from "next/navigation";
-// revalidate
-export const revalidate =3; //3s마다 
+
 
 type Props ={
     params:{
