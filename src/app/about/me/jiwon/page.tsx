@@ -2,7 +2,7 @@
 export default function Page() {
     return (
         <h1>
-        I am Jiwon hehe
+        I am Jiwon 
         </h1>
     );
 }
