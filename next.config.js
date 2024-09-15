@@ -8,7 +8,7 @@ const nextConfig = {
       },
     ],
   },
-
+  //A->B
   async redirects() {
     return [
       {
@@ -20,6 +20,18 @@ const nextConfig = {
         source: '/products/deleted_temp',
         destination: '/products',
         permanent: false, // 308
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/jiwon',
+        destination: '/about/me/jiwon',
+      },
+      {
+        source: '/items/:slug',
+        destination: '/products/:slug',
       },
     ];
   },
