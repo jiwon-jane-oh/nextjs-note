@@ -15,7 +15,7 @@ export default function Home() {
   // const [name, setName]= useState(); //서버 컴포넌트는 상태관련된것 사용불가
   return (
       <>
-      <h1>Homepage v4</h1>
+      <h1>Homepage "v4 "</h1>
       <Counter/>
       <Image src='https://images.unsplash.com/photo-1441986300917-64674bd600d8' width={400} height={400} alt='shop'/>
       </>
